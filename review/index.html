@@ -31,5 +31,5 @@ function next(n){if(n===1){if(!$("project").value||($("project").value==="Other"
 if(installer)text+=" Team member noted: "+installer+".";
 $("draft").value=text}show(n+1)}
 async function copyOnly(){try{await navigator.clipboard.writeText($("draft").value);alert("Review copied. You can paste it into Google Reviews.")}catch(e){$("draft").select();document.execCommand("copy");alert("Review copied. You can paste it into Google Reviews.")}}
-async function copyOpen(){await copyOnly();window.open("https://www.google.com/search?kgmid=/g/11hs_gnchd&hl=en-AU&q=ACE+SIGN&shem=epsd1,esd2e,ltae,rimspwouoe,sdpie&shndl=30&source=sh/x/loc/osrp/m5/1&kgs=424a03f141f5dfae&utm_source=epsd1,esd2e,ltae,rimspwouoe,sdpie,sh/x/loc/osrp/m5/1#lrd=0x6ad661f68e89da1b:0xd3999cb95a97f03,3,,,,","_blank","noopener")}
+async function copyOpen(){await copyOnly();window.open("https://www.google.com/search?q=ace%20sign%20reviews&source=sh/x/gs/m2/5&shem=aimgspe,#ebo=2&lrd=0x6ad661f68e89da1b:0xd3999cb95a97f03,3,,,,","_blank","noopener")}
 </script></body></html>
