@@ -33,7 +33,7 @@ jobs:
       - name: Prepare review site
         run: |
           mkdir -p _site/review
-          cp review/index.html _site/review/index.html
+          cp -r review/. _site/review/
           touch _site/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
