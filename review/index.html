@@ -32,5 +32,34 @@ if(installer)text+=" Team member noted: "+installer+".";
 $("draft").value=text}show(n+1)}
 async function copyOnly(){try{await navigator.clipboard.writeText($("draft").value);alert("Review copied. You can paste it into Google Reviews.")}catch(e){$("draft").select();document.execCommand("copy");alert("Review copied. You can paste it into Google Reviews.")}}
 const GOOGLE_REVIEWS_URL="https://search.google.com/local/writereview?placeid=ChIJG9qJjvZh1moRA3-plcuZOQ0";
-function copyOpen(){const text=$("draft").value;try{navigator.clipboard.writeText(text).catch(()=>{})}catch(e){}if(window.matchMedia("(max-width:560px)").matches){window.location.assign(GOOGLE_REVIEWS_URL)}else{window.open(GOOGLE_REVIEWS_URL,"_blank","noopener")}}
+const REVIEW_TRACKING_API="https://ace-sign-review-api.hannahkuo-2010607.workers.dev/";
+function copyOpen(){
+  const text=$("draft").value;
+  try{navigator.clipboard.writeText(text).catch(()=>{})}catch(e){}
+  const project=$("project").value==="Other"?$("other").value.trim():$("project").value;
+  const payload={
+    recordId:window.crypto&&crypto.randomUUID?crypto.randomUUID():"review-"+Date.now()+"-"+Math.random().toString(36).slice(2,10),
+    project,
+    installer:$("installer").value.trim(),
+    topics:[...selected],
+    experience:$("experience").value.trim(),
+    draft:text
+  };
+  try{
+    fetch(REVIEW_TRACKING_API,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(payload),
+      keepalive:true
+    }).then(response=>{
+      if(!response.ok)console.error("Review tracking failed:",response.status);
+      else console.log("Review click tracking request accepted.");
+    }).catch(error=>console.error("Review tracking request failed:",error));
+  }catch(error){console.error("Review tracking request failed:",error)}
+  if(window.matchMedia("(max-width:560px)").matches){
+    window.location.assign(GOOGLE_REVIEWS_URL);
+  }else{
+    window.open(GOOGLE_REVIEWS_URL,"_blank","noopener");
+  }
+}
 </script></body></html>
