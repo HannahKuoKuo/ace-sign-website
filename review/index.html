@@ -31,6 +31,6 @@ function next(n){if(n===1){if(!$("project").value||($("project").value==="Other"
 if(installer)text+=" Team member noted: "+installer+".";
 $("draft").value=text}show(n+1)}
 async function copyOnly(){try{await navigator.clipboard.writeText($("draft").value);alert("Review copied. You can paste it into Google Reviews.")}catch(e){$("draft").select();document.execCommand("copy");alert("Review copied. You can paste it into Google Reviews.")}}
-const GOOGLE_REVIEWS_URL="https://www.google.com/search?q=ace%20sign%20reviews&source=sh/x/gs/m2/5&shem=aimgspe,#ebo=2&lrd=0x6ad661f68e89da1b:0xd3999cb95a97f03,3,,,,";
+const GOOGLE_REVIEWS_URL="https://search.google.com/local/writereview?placeid=ChIJ1VWE9im55zsR6p0g3D5FtYE";
 async function copyOpen(){try{await navigator.clipboard.writeText($("draft").value)}catch(e){$("draft").select();document.execCommand("copy")}if(window.matchMedia("(max-width:560px)").matches){window.location.href=GOOGLE_REVIEWS_URL}else{window.open(GOOGLE_REVIEWS_URL,"_blank","noopener")}}
 </script></body></html>
