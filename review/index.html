@@ -4,27 +4,78 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#071624">
-<meta name="robots" content="noindex">
-<title>ACE SIGN · Leave a Google review</title>
-<meta http-equiv="refresh" content="0; url=https://search.google.com/local/writereview?placeid=ChIJG9qJjvZh1moRA3-plcuZOQ0">
-<script>
-/* Scan → straight to ACE SIGN's Google review screen.
-   replace() keeps this page out of history, so Back doesn't bounce the customer here again. */
-location.replace("https://search.google.com/local/writereview?placeid=ChIJG9qJjvZh1moRA3-plcuZOQ0");
-</script>
+<title>ACE SIGN · How did we do?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Inter:wght@400;500;600;700&display=swap">
 <style>
+:root{--cover:#071624;--bg:#0A1B29;--text:#DCE5EC;--orange:#F5662C;--display:Archivo,Inter,"Arial Narrow",sans-serif}
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%;background:#071624;color:#fff}
-body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:32px 24px;text-align:center;font:16px/1.5 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-img{width:64px;height:64px;object-fit:contain;background:#fff;border-radius:6px;padding:5px}
-p{margin:0;color:#C8D3DC}
-a{display:flex;align-items:center;justify-content:center;width:100%;max-width:360px;min-height:58px;padding:14px 18px;border-radius:4px;background:#F5662C;color:#0A1B29;font-weight:800;font-size:17px;letter-spacing:1px;text-transform:uppercase;text-decoration:none}
-a:focus-visible{outline:3px solid #F5662C;outline-offset:3px}
+html,body{margin:0;background:var(--cover);color:#fff}
+body{font:16px/1.5 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+a:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.cover{position:relative;min-height:100vh;min-height:100dvh;overflow:hidden;display:flex;flex-direction:column;padding:28px 24px calc(24px + env(safe-area-inset-bottom))}
+.cover-photo{position:absolute;left:0;right:0;bottom:0;height:56%}
+.cover-photo img{width:100%;height:100%;object-fit:cover;object-position:60% 40%;display:block}
+.cover-fade{position:absolute;inset:0;background:linear-gradient(180deg,var(--cover) 0%,rgba(7,22,36,.1) 30%,rgba(7,22,36,.25) 62%,var(--cover) 96%)}
+.copy{position:relative;display:flex;flex-direction:column;gap:22px;max-width:520px}
+.logo{width:64px;height:64px;object-fit:contain;background:#fff;border-radius:6px;padding:5px;display:block}
+.rule{width:64px;height:4px;background:var(--orange)}
+h1{margin:0;font-family:var(--display);font-stretch:66%;font-weight:900;font-size:76px;line-height:.88;text-transform:uppercase;letter-spacing:-.5px}
+h1 em{font-style:normal;color:var(--orange)}
+.copy p{margin:0;font-size:17px;line-height:1.45;color:var(--text);max-width:340px}
+.cta{position:relative;margin-top:auto;display:flex;flex-direction:column;gap:18px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:62px;padding:14px 16px;border-radius:4px;background:var(--orange);color:var(--bg);text-decoration:none;font-family:var(--display);font-stretch:85%;font-weight:900;font-size:20px;letter-spacing:2px;text-transform:uppercase}
+.tagline{display:flex;align-items:center;justify-content:center;gap:12px;font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;white-space:nowrap;color:var(--text)}
+.tagline:before{content:"";width:36px;height:3px;background:var(--orange)}
+@media (min-width:960px){
+.cover{justify-content:center;padding:72px 80px}
+.cover-photo{left:auto;top:0;height:100%;width:56%}
+.cover-fade{background:linear-gradient(90deg,var(--cover) 0%,rgba(7,22,36,.55) 14%,rgba(7,22,36,0) 34%)}
+.cta{margin-top:36px;max-width:440px}
+h1{font-size:120px}
+}
 </style>
 </head>
 <body>
-<img src="./ACE%20Sign%20Logo.png" alt="ACE SIGN">
-<p>Opening Google Reviews…</p>
-<a href="https://search.google.com/local/writereview?placeid=ChIJG9qJjvZh1moRA3-plcuZOQ0">Tap here if nothing happens</a>
+<main class="cover">
+  <div class="cover-photo"><img src="./storefront.jpg" alt="ACE SIGN storefront at dusk"><div class="cover-fade"></div></div>
+  <div class="copy">
+    <img src="./ACE%20Sign%20Logo.png" alt="ACE SIGN" class="logo">
+    <span class="rule" aria-hidden="true"></span>
+    <h1>How did<br><em>we do?</em></h1>
+    <p>Your feedback helps us keep delivering high-quality signage and service.</p>
+  </div>
+  <div class="cta">
+    <a class="btn" id="startReview" href="https://search.google.com/local/writereview?placeid=ChIJG9qJjvZh1moRA3-plcuZOQ0">Start review
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    <div class="tagline">Your space. Your signature.</div>
+  </div>
+</main>
+<script>
+const REVIEW_TRACKING_API="https://ace-sign-review-api.hannahkuo-2010607.workers.dev/";
+const btn=document.getElementById("startReview");
+
+/* Desktop: open Google in a new tab so this page stays. Phone: same tab (as before). */
+if(!window.matchMedia("(max-width:560px)").matches){btn.target="_blank";btn.rel="noopener"}
+
+/* Count every "Start review" tap. Same payload shape as before; fields we no longer collect are left empty. */
+btn.addEventListener("click",()=>{
+  const payload={
+    recordId:window.crypto&&crypto.randomUUID?crypto.randomUUID():"review-"+Date.now()+"-"+Math.random().toString(36).slice(2,10),
+    event:"start_review",
+    project:"",
+    installer:"",
+    topics:[],
+    experience:"",
+    draft:""
+  };
+  try{
+    fetch(REVIEW_TRACKING_API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload),keepalive:true})
+      .then(r=>{if(!r.ok)console.error("Review tracking failed:",r.status)})
+      .catch(err=>console.error("Review tracking request failed:",err));
+  }catch(err){console.error("Review tracking request failed:",err)}
+});
+</script>
 </body>
 </html>
