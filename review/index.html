@@ -104,11 +104,7 @@ h1 em,h2 em{font-style:normal;color:var(--orange)}
       <div class="intro">
         <span class="tag">Optional</span>
         <h2>Who are<br><em>you with?</em></h2>
-        <p>Let us know your brand or company so we can match your review to your project. You can leave these blank.</p>
-      </div>
-      <div class="field">
-        <label for="brand" class="label">Brand</label>
-        <input id="brand" class="input" placeholder="e.g. UGG" autocomplete="off" enterkeyhint="next">
+        <p>Let us know your company so we can match your review to your project. You can leave this blank.</p>
       </div>
       <div class="field">
         <label for="company" class="label">Company name</label>
@@ -142,18 +138,15 @@ function show(){
 window.addEventListener("hashchange",show);
 $("startReview").addEventListener("click",()=>{location.hash="details"});
 $("backBtn").addEventListener("click",()=>history.back());
-["brand","company"].forEach(id=>$(id).addEventListener("input",e=>e.target.classList.toggle("filled",!!e.target.value.trim())));
-$("brand").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();$("company").focus()}});
+$("company").addEventListener("input",e=>e.target.classList.toggle("filled",!!e.target.value.trim()));
 
 /* One tracking record per customer, sent as they leave for Google. Same payload shape as before. */
 function track(){
-  const brand=$("brand").value.trim();
   const company=$("company").value.trim();
   const payload={
     recordId:window.crypto&&crypto.randomUUID?crypto.randomUUID():"review-"+Date.now()+"-"+Math.random().toString(36).slice(2,10),
     event:"start_review",
-    project:brand,
-    brand:brand,
+    project:company,
     company:company,
     installer:"",
     topics:[],
